@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>商城首页</title>
+        <style>
+            header{
+                background-color:#F8F8F8;
+                height:110px;
+                border:1px solid #F0F0F0;
+            }
+
+            header span{
+                float:left;
+                margin-top:7px;
+            }
+            body{
+                font-famile:"微软雅黑";
+
+            }
+            header a{
+                float:right;
+                margin-top:2px;
+                margin-left:30px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <header>
+
+            <span style="float: right">
+                <h:form>
+                    <c:if test="#{loginBean.username ==null}">
+                        <h:commandButton value="登录" action="login/login.xhtml"/>
+                        <h:commandButton value="注册" action="register/Register.xhtml"/>
+                    </c:if>
+                    <!--<a href="/ZbiaoDemo/BuyInformation">查看信息</a>  action="/ZbiaoDemo/BuyInformation"--> 
+                    <c:if test="#{loginBean.username !=null}">
+                        <h:commandLink value="注销" style="text-decoration: none" action="#{loginBean.Zhuxiao}" />
+                     <h:commandLink value="#{loginBean.username}" action="#{loginBean.xinXi()}" style="text-decoration: none" />
+                     </c:if>
+                </h:form>
+            </span>
+
+
+            <div class="center">
+
+                <img src="phone/8.png" alt="商城"  width="8%" height="5%" style="margin-left: 150px;margin-top: 0px" />
+                <!--<h1><span style="text-align: center; color: palevioletred;float: right;margin-right: 50px;margin-top: 0px">遇见书店</span></h1>-->
+                <div style="float: right;margin-right: 50px;margin-top: 20px;font-size: 40px;color:#4671D5;font-family: 等线">遇见书店</div>
+            </div>
+        </header>
+        <hr/>
+        <article>
+
+            <aside>
+
+                <p style="text-align: center;word-spacing: 30px;">
+                    <a href="phone/wenxue/wenxue.xhtml" target="Myiframe">文学</a>
+                    <a href="phone/jisuanji/jisuanji.xhtml" target="Myiframe">计算机</a>
+                    <a href="" target="Myiframe" >生活</a>
+                    <a href="" target="Myiframe">外语</a>
+                    <a href="" target="Myiframe">励志</a>
+                    <a href="" target="Myiframe">经营</a>
+                    <a href="" target="Myiframe">少儿</a>
+                    <a href="" target="Myiframe">艺术</a>
+                    <a href="" target="Myiframe">科技</a>
+                    <a href="" target="Myiframe">原版</a>
+                    <a href="" target="Myiframe">生活百科</a>
+                    <a href="" style="color: green" target="Myiframe">全部商品目录</a>
+                    
+                    <form action="/ZbiaoDemo/BookSousuo" method="post"  target="Myiframe">
+                        <p style="background-color: green">
+                            <span style="margin-left:  65%">
+                                <input  type="text" name="sousu" id="sousu" placeholder="请输入书名"/>
+                                <input type="submit" value="搜索"  target="Myiframe"/>
+
+                            </span>
+                        </p>
+                    </form>
+                </p>
+            </aside>
+            <section> 
+                <div id="se1">
+                    <iframe src="newjsf.xhtml" name="Myiframe" width="60%" height="1000px"  style="align-content: center;margin-left: 20%;">
+                    </iframe>
+                </div>
+            </section>
+        </article>
+        <hr/>
+        <div style="background-color: #c2dfef">
+            <div style="margin-left: 10%">
+                <p>电话：11123154154</p>
+                <p> 地址：青岛大学</p>
+                <p>邮箱：java07@qdu.edu.cn</p>
+            </div>
+
+            <div style="text-align: center"> 版权问题</div>
+        </div>
+    </h:body>
+</html>
+
